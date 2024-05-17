@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en" xml:lang="en" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Your Store</title>
+<meta name="description" content="My Store" />
+<link rel="stylesheet" type="text/css" href="stylesheet/960.css" media="all" />
+<link rel="stylesheet" type="text/css" href="stylesheet/screen.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="stylesheet/color.css" media="screen" />
+<!--[if lt IE 9]>
+<link rel="stylesheet" type="text/css" href="stylesheet/ie.css" media="screen" />
+<![endif]-->
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.8/jquery.validate.min.js"></script>
+<script type="text/javascript" src="js/shoppica.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+														
+	jQuery.validator.setDefaults({
+			errorElement: "p",
+			errorClass: "s_error_msg",
+			errorPlacement: function(error, element) {
+					error.insertAfter(element);
+			},
+			highlight: function(element, errorClass, validClass) {
+					$(element).addClass("error_element").removeClass(validClass);
+					$(element).parent("div").addClass("s_error_row");
+			},
+			unhighlight: function(element, errorClass, validClass) {
+					$(element).removeClass("error_element").addClass(validClass);
+					$(element).parent("div").removeClass("s_error_row");
+			}
+	});
+	$("#contact_form").validate({
+		rules: {
+			enquiry: {
+					required: true,
+					minlength: 10
+			}
+		}
+	});
+	
+});
+</script>
+
+
+</head>
+
+<body class="s_layout_fixed">
+
+<div id="wrapper"> 
+  
+  <div id="header" class="container_12">
+    <div class="grid_12">
+    
+    	<a id="site_logo" href="index.html">Guitarmaster - лучший гитарный магазин!</a> 
+
+      <div id="system_navigation" class="s_nav">
+        <ul class="s_list_1 clearfix">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="cart.html">Корзина</a></li>
+          <li><a href="static.html">О нас</a></li>
+          <li><a href="contacts.html">Скидочная карта</a></li>
+        </ul>
+      </div>
+      
+      <div id="categories" class="s_nav">
+        <ul>
+          <li id="menu_home"> <a href="index.html">Home</a> </li>
+          <li> <a href="listing_1.html">Акустические гитары</a>
+          </li>
+          <li> <a href="listing_2.html">Элктрогитары</a>
+          </li>
+          <li><a href="listing_3.html">Аксессуары</a>
+          </li>
+        </ul>
+      </div>
+   
+      <div id="cart_menu" class="s_nav">
+      	<a href="cart.html"><span class="s_icon"></span> <small class="s_text">Cart</small><span class="s_grand_total s_main_color">$0.00</span></a>
+        <div class="s_submenu s_cart_holder">
+          <p class="s_mb_0">0 items</p>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <div id="intro">
+    <div id="intro_wrap">
+      <div class="container_12">
+        <div id="breadcrumbs" class="grid_12">
+          <a href="">Главная</a>
+          &gt;
+          <a href="">Скидочная карта</a>
+        </div>
+        <h1>Скидочная карта</h1>
+      </div>
+    </div>
+  </div>
+  
+  <div id="content" class="container_16">
+
+
+    
+    <div id="contacts" class="s_info_page grid_12">      
+      <h2><span class="s_secondary_color">Заполните</span> форму</h2>
+
+      <form id="contact_form"> 
+        <div id="contact_form_icon"></div>
+        <div class="s_row_3 clearfix">
+          <input type="text" id="lastName" placeholder="Фамилия" oninput="this.value = this.value.toUpperCase()"> 
+        </div>
+        <div class="s_row_3 clearfix">
+          <input type="text" id="firstName" placeholder="Имя" oninput="this.value = this.value.toUpperCase()"> 
+        </div>
+        <div class="s_row_3 clearfix">
+          <input type="tel" id="phoneNumber" placeholder="Номер телефона"> 
+        </div>
+        <div class="s_row_3 clearfix">
+          <input type="number" id="age" placeholder="Возраст">
+        </div>
+        <input type="submit" value="Зарегестрировать Карту"> 
+      </form>
+ 
+    <script> 
+        document.getElementById("contact_form").addEventListener("submit", function(event) { 
+            event.preventDefault(); 
+            let lastName = document.getElementById("lastName").value; 
+            let firstName = document.getElementById("firstName").value; 
+            let age = document.getElementById("age").value; 
+ 
+            if (age < 18) { 
+                alert("Карта выдается только после 18 лет"); 
+            } else { 
+                let cardNumber = Math.floor(Math.random() * 100000) + 1; 
+                alert(`Номер карты: ${cardNumber}\nФамилия: ${lastName}\nИмя: ${firstName}`); 
+            } 
+        }); 
+ 
+        function resetForm() { 
+            document.getElementById("firstName").value = ""; 
+            document.getElementById("lastName").value = ""; 
+            document.getElementById("phoneNumber").value = ""; 
+            document.getElementById("age").value = ""; 
+        } 
+    </script> 
+    </div>
+    
+    <div id="right_col" class="grid_3">
+    
+    <div class="clear"></div>
+   
+  </div>
+
+  <div id="shop_info">
+    <div id="shop_info_wrap">
+      <div class="container_12">
+        <div id="shop_contacts" class="grid_3">
+          <h2>Контакты</h2>
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td valign="middle"><span class="s_icon_32"><span class="s_icon s_phone_32"></span>+79992281488<br /></span></td>
+            </tr>
+            <tr>
+              <td valign="middle"><span class="s_icon_32"><span class="s_icon s_fax_32"></span>5234452<br /></span></td>
+            </tr>
+            <tr>
+              <td valign="middle"><span class="s_icon_32"><span class="s_icon s_mail_32"></span>guitarmaster@gmail.com<br /></span></td>
+            </tr>
+          </table>
+        </div>
+
+  <div id="footer" class="container_12">
+    <div id="payments" class="right clearfix">
+    </div>
+    <p id="copy">&copy; Guitarmaster 2024 <a class="blue" href="">ООО "Зелибоба"</a>.<br /> </a></p>
+  </div>
+  
+</div>
+
+<div id="fb-root"></div>
+<script type="text/javascript">
+  window.fbAsyncInit = function() {
+    FB.init({appId: '0c18007de6f00f7ecda8c040fb76cd90', status: true, cookie: true,
+     xfbml: true});
+  };
+  (function() {
+    var e = document.createElement('script'); e.async = true;
+    e.src = document.location.protocol +
+    '//connect.facebook.net/en_US/all.js';
+    document.getElementById('fb-root').appendChild(e);
+  }());
+</script>
+
+</body>
+</html>
